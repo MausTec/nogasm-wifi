@@ -37,13 +37,13 @@ private:
   static Page* popHistory();
 };
 
-#include "../src/pages/pDebug.h"
+#include "../../src/pages/pDebug.h"
 extern pDebug DebugPage;
 
-#include "../src/pages/pRunGraph.h"
+#include "../../src/pages/pRunGraph.h"
 extern pRunGraph RunGraphPage;
 
-#include "../src/pages/pSnake.h"
+#include "../../src/pages/pSnake.h"
 extern pSnake SnakePage;
 
 #endif

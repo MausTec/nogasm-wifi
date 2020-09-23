@@ -2,7 +2,7 @@
 #define __RunningAverage_h
 
 #include "Arduino.h"
-#include "../config.h"
+#include "../../config.h"
 
 #define RA_BUFFER_SIZE 32
 

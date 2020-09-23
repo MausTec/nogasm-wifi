@@ -1,6 +1,6 @@
 #include "../include/Console.h"
 #include "../include/Hardware.h"
-#include "../config.h"
+#include "../../config.h"
 
 typedef int (*cmd_func)(char**);
 

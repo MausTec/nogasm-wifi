@@ -5,7 +5,7 @@
 #include "SD.h"
 #include "SPI.h"
 
-#include "../config.h"
+#include "../../config.h"
 
 ConfigStruct Config;
 

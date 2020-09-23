@@ -1,7 +1,7 @@
 #ifndef __UIMenu_h
 #define __UIMenu_h
 
-#include "../config.h"
+#include "../../config.h"
 #include <functional>
 
 #define TITLE_SIZE 16

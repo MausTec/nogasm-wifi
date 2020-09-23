@@ -4,7 +4,7 @@
 #include "../../include/Page.h"
 #include "../../include/UserInterface.h"
 #include "../../include/assets.h"
-#include "../../VERSION.h"
+#include "../../../VERSION.h"
 
 class pDebug : public Page {
   void Enter(bool) override {

@@ -3,7 +3,7 @@
 
 #include "../../include/Page.h"
 #include "../../include/UserInterface.h"
-#include "../../config.h"
+#include "../../../config.h"
 
 #define SNAKE_CUBE_SIZE 3
 #define SNAKE_PADDING_SIZE 1

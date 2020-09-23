@@ -2,7 +2,7 @@
 #define __OrgasmControl_h
 
 #include <Arduino.h>
-#include "../config.h"
+#include "../../config.h"
 #include "RunningAverage.h"
 #include <SD.h>
 

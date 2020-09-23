@@ -1,7 +1,7 @@
 #ifndef __User_Interface_h
 #define __User_Interface_h
 
-#include "../config.h"
+#include "../../config.h"
 
 #define BUTTON_HEIGHT 9
 #define BUTTON_WIDTH  42 // (SCREEN_WIDTH / 3)
