@@ -5,3 +5,5 @@ tmp/*
 !tmp/.keep
 
 cmake-build-debug/
+cmake-build-release/
+build/
