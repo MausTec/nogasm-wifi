@@ -40,21 +40,26 @@ namespace OrgasmControl {
 
       bool time_out_over = false;
       long on_time = millis() - motor_start_time;
-      if (millis() - motor_stop_time > Config.edge_delay){
+      if (millis() - motor_stop_time > Config.edge_delay + random_additional_delay){
         time_out_over = true;
       }
       // Ope, orgasm incoming! Stop it!
       if (arousal > Config.sensitivity_threshold && motor_speed > 0 && on_time > Config.minimum_on_time) {
         // The motor_speed check above, btw, is so we only hit this once per peak.
-        // Set the motor speed to 0, and set stop time.
+        // Set the motor speed to 0, set stop time, and determine the new additional random time.
         motor_speed = 0;
         motor_stop_time = millis();
+        // If Max Additional Delay is not disabled, caculate a new delay every time the motor is stopped.
+        if (Config.max_additional_delay != 0) {
+          random_additional_delay = random(Config.max_additional_delay);
+        }
         denial_count++;
       } else if (!time_out_over) {
           twitchDetect();
       } else if (motor_speed == 0){
           motor_start_time = millis();
           motor_speed = Config.motor_start_speed;
+          random_additional_delay = 0;
       } else if (motor_speed < Config.motor_max_speed) {
           motor_speed += motor_increment;
       } else if (motor_speed > Config.motor_max_speed) {

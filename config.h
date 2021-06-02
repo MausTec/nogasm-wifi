@@ -102,6 +102,7 @@ struct ConfigStruct {
   byte motor_max_speed;
   byte motor_start_speed;
   int edge_delay;
+  int max_additional_delay;
   int minimum_on_time;
   byte pressure_smoothing;
   int sensitivity_threshold;

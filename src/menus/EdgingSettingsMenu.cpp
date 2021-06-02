@@ -67,6 +67,19 @@ UIInput EdgeDelayInput("Edge Delay", [](UIMenu *ip) {
   });
 });
 
+UIInput MaxAdditionalDelayInput("Maximum Additional Delay", [](UIMenu *ip) {
+  UIInput *input = (UIInput*) ip;
+  input->setMax(60);
+  input->setStep(1);
+  input->setValue(Config.max_additional_delay / 1000);
+  input->onChange([](int value) {
+    Config.max_additional_delay = value * 1000;
+  });
+  input->onConfirm([](int) {
+    saveConfigToSd(0);
+  });
+});
+
 UIInput MinimumOnTimeInput("Minimum On Time", [](UIMenu *ip) {
   UIInput *input = (UIInput*) ip;
   input->setMax(5000);
@@ -116,6 +129,7 @@ static void buildMenu(UIMenu *menu) {
   menu->addItem(&MotorStartSpeedInput);
   menu->addItem(&MotorRampTimeInput);
   menu->addItem(&EdgeDelayInput);
+  menu->addItem(&MaxAdditionalDelayInput);
   menu->addItem(&MinimumOnTimeInput);
   menu->addItem(&ArousalLimitInput);
   menu->addItem(&SensorSensitivityInput);

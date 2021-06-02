@@ -35,7 +35,8 @@ and is automatically generated. Here is a quick summary of config variables:
 |`motor_start_speed`|Byte|10|The minimum speed the motor will start at in automatic mode.|
 |`motor_max_speed`|Byte|128|Maximum speed for the motor in auto-ramp mode.|
 |`motor_ramp_time_s`|Int|30|The time it takes for the motor to reach `motor_max_speed` in auto ramp mode.|
-|`edge_delay`|Int|10000|Time (ms) after edge detection before resuming stimulation.|
+|`edge_delay`|Int|10000|Minimum time (ms) after edge detection before resuming stimulation.|
+|`max_additional_delay`|Int|10000|Maximum time (ms) that can be added to the edge delay before resuming stimulation. A random number will be picked between 0 and this setting each cycle. 0 to disable.|
 |`minimum_on_time`|Int|1000|Time (ms) after stimulation starts before edge detection is resumed.|
 |`screen_dim_seconds`|Int|10|Time, in seconds, before the screen dims. 0 to disable.|
 |`screen_timeout_seconds`|Int|0|Time, in seconds, before the screen turns off. 0 to disable.|

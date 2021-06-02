@@ -53,6 +53,7 @@ namespace OrgasmControl {
     long motor_stop_time = 0;
     long motor_start_time = 0;
     long edge_time_out = 10000;
+    long random_additional_delay = 0;
     int twitch_count = 0;
 
 
