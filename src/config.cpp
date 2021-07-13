@@ -10,7 +10,7 @@
 #include "Hardware.h"
 #include "Page.h"
 
-#include <FastLed.h>
+#include <FastLED.h>
 
 ConfigStruct Config;
 

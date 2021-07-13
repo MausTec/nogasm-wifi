@@ -1,7 +1,7 @@
 #ifndef __Icons_h
 #define __Icons_h
 
-#include <arduino.h>
+#include <pgmspace.h>
 
 byte WIFI_ICON[6][8] PROGMEM = {
     {

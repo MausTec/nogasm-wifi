@@ -1,7 +1,6 @@
 #ifndef __Hardware_h
 #define __Hardware_h
 
-#include "arduino.h"
 #include "config.h"
 
 #include "UserInterface.h"

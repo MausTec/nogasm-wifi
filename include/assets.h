@@ -1,6 +1,6 @@
 #ifndef __ASSETS_h
 #define __ASSETS_h
-#include "arduino.h"
+#include <pgmspace.h>
 
 extern unsigned char SPLASH_IMG[] PROGMEM;
 extern unsigned char PLUG_ICON[][24*3] PROGMEM;

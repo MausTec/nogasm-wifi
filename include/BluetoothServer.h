@@ -1,7 +1,6 @@
 #ifndef __BluetoothServer_h
 #define __BluetoothServer_h
 
-#include <arduino.h>
 #include "config.h"
 
 #include <NimBLEDevice.h>

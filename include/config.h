@@ -1,7 +1,6 @@
 #ifndef __config_h
 #define __config_h
 
-#include "arduino.h"
 #include "errors.h"
 #include "VibrationModeController.h"
 
