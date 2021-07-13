@@ -103,6 +103,12 @@ void loadConfigFromJsonObject(JsonDocument &doc) {
 
   // Copy Vibration Settings
   Config.vibration_mode = (VibrationMode)(doc["vibration_mode"] | (int)VibrationMode::RampStop);
+  
+  // Clench settings
+  Config.clench_pressure_sensitivity = doc["clench_pressure_sensitivity"] | 200;
+  Config.clench_duration_threshold = doc["clench_duration_threshold"] | 35;
+  Config.autoEdgingDurationMinutes = doc["auto_edging_duration_minutes"] | 30;
+  Config.postOrgasmDurationMinutes = doc["post_Orgasm_Duration_Minutes"] | 1;
 
   /**
    * Setting Validations
@@ -150,6 +156,12 @@ void dumpConfigToJsonObject(JsonDocument &doc) {
 
   // Vibration Settings
   doc["vibration_mode"] = (int) Config.vibration_mode;
+  
+  // Clench settings
+  doc["clench_pressure_sensitivity"] = Config.clench_pressure_sensitivity;
+  doc["clench_duration_threshold"] = Config.clench_duration_threshold;
+  doc["auto_edging_duration_minutes"] = Config.autoEdgingDurationMinutes;
+  doc["post_Orgasm_Duration_Minutes"] = Config.postOrgasmDurationMinutes;
 } // dumpConfigToJsonObject
 
 bool dumpConfigToJson(String &str) {
@@ -267,6 +279,14 @@ bool setConfigValue(const char *option, const char *value, bool &require_reboot)
     require_reboot = true;
   } else if (!strcmp(option, "vibration_mode")) {
     Config.vibration_mode = (VibrationMode) atoi(value);
+  } else if(!strcmp(option, "clench_pressure_sensitivity")) {
+    Config.clench_pressure_sensitivity = atoi(value);
+  } else if(!strcmp(option, "clench_duration_threshold")) {
+    Config.clench_duration_threshold = atoi(value);
+  } else if(!strcmp(option, "auto_edging_duration_minutes")) {
+    Config.autoEdgingDurationMinutes = atoi(value);
+  } else if(!strcmp(option, "post_Orgasm_Duration_Minutes")) {
+    Config.postOrgasmDurationMinutes = atoi(value);
   } else {
     return false;
   }
@@ -323,6 +343,14 @@ bool getConfigValue(const char *option, String &out) {
     out += String(Config.hostname) + '\n';
   } else if (!strcmp(option, "vibration_mode")) {
     out += String((int) Config.vibration_mode) + '\n';
+  } else if(!strcmp(option, "clench_pressure_sensitivity")) { 
+    out += String(Config.clench_pressure_sensitivity) + '\n';
+  } else if(!strcmp(option, "clench_duration_threshold")) {
+    out += String(Config.clench_duration_threshold) + '\n';
+  } else if(!strcmp(option, "auto_edging_duration_minutes")) {
+    out += String(Config.autoEdgingDurationMinutes) + '\n';
+  } else if(!strcmp(option, "post_Orgasm_Duration_Minutes")) {
+    out += String(Config.postOrgasmDurationMinutes) + '\n';
   } else {
     return false;
   }

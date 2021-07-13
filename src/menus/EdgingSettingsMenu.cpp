@@ -111,6 +111,58 @@ UIInput SensorSensitivityInput("Sensor Sensitivity", [](UIMenu *ip) {
   });
 });
 
+UIInput ClenchPressureSensitivity("Clench Pressure Sensitivity", [](UIMenu *ip) {
+  UIInput *input = (UIInput*) ip;
+  input->setMax(300);
+  input->setStep(1);
+  input->setValue(Config.clench_pressure_sensitivity);
+  input->onChange([](int value) {
+    Config.clench_pressure_sensitivity = value;
+  });
+  input->onConfirm([](int) {
+    saveConfigToSd(0);
+  });
+});
+
+UIInput ClenchTimeThreshold("Clench Time Threshold", [](UIMenu *ip) {
+  UIInput *input = (UIInput*) ip;
+  input->setMax(300);
+  input->setStep(1);
+  input->setValue(Config.clench_duration_threshold);
+  input->onChange([](int value) {
+    Config.clench_duration_threshold = value;
+  });
+  input->onConfirm([](int) {
+    saveConfigToSd(0);
+  });
+});
+
+UIInput EdgingDuration("Edge Duration Minutes", [](UIMenu *ip) {
+  UIInput *input = (UIInput*) ip;
+  input->setMax(300);
+  input->setStep(1);
+  input->setValue(Config.autoEdgingDurationMinutes);
+  input->onChange([](int value) {
+    Config.autoEdgingDurationMinutes = value;
+  });
+  input->onConfirm([](int) {
+    saveConfigToSd(0);
+  });
+});
+
+UIInput PostOrgasmDuration("PostOrgasm Minutes", [](UIMenu *ip) {
+  UIInput *input = (UIInput*) ip;
+  input->setMax(300);
+  input->setStep(1);
+  input->setValue(Config.postOrgasmDurationMinutes);
+  input->onChange([](int value) {
+    Config.postOrgasmDurationMinutes = value;
+  });
+  input->onConfirm([](int) {
+    saveConfigToSd(0);
+  });
+});
+
 static void setVibrateMode(UIMenu *menu, int m) {
   VibrationMode mode = (VibrationMode) m;
 
@@ -161,6 +213,10 @@ static void buildMenu(UIMenu *menu) {
   menu->addItem(&MinimumOnTimeInput);
   menu->addItem(&ArousalLimitInput);
   menu->addItem(&SensorSensitivityInput);
+  menu->addItem(&ClenchPressureSensitivity); //  Clench Menu
+  menu->addItem(&ClenchTimeThreshold);       //  Clench Menu
+  menu->addItem(&EdgingDuration);            //   Auto Edging
+  menu->addItem(&PostOrgasmDuration);        //   Post Orgasm
 }
 
 UIMenu EdgingSettingsMenu("Edging Settings", &buildMenu);

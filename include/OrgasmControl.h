@@ -59,9 +59,23 @@ namespace OrgasmControl {
     // File Writer
     long recording_start_ms = 0;
     File logfile;
+    
+    //  Clench variables
+    long clench_pressure_threshold = 500; // setting start clench threshold to be over deflated plug
+    int clench_duration = 0;
+    //	int clench_pressure_sensitivity; //  placed in config.h
+    //	int clench_duration_threshold;
 
+    // Autoedging Time and Post-Orgasm varables
+    // int autoEdgingDurationMinutes;     //  placed in config.h
+    // int postOrgasmDurationMinutes;     //  placed in config.h
+    int original_sensitivity_threshold;
+    long autoEdgingStartMillis;
+    long postOrgasmStartMillis;
+    
     void updateArousal();
     void updateMotorSpeed();
+    void updateEdgingTime();
     VibrationModeController* getVibrationMode();
   }
 }
